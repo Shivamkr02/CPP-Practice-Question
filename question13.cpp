@@ -12,4 +12,5 @@ int main(){
     cout<<"Enter the value of X and Y: ";
     cin>>x>>y;
     cout<<power(x,y);
+    return 0;
 }
