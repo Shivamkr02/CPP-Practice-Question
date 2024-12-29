@@ -13,9 +13,22 @@ void fibonacci_series(int n){
         cout<<arr[i]<<" ";
     }
 }
+bool isInFib(int num){
+    int a=-1,b=1,c=0;
+
+    while(c<num){
+        c=a+b;
+        if(num==c)
+            return true;
+        a=b;
+        b=c;
+    }
+    return false;
+}
 int main(){
     int n;
     cin>>n;
-    fibonacci_series(n);
+    // fibonacci_series(n);
+    cout<<isInFib(n);
     return 0;
 }
