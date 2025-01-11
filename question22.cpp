@@ -18,7 +18,7 @@ void sort(char *str[],int n,bool asc){
     else{
         for(r=0;r<=n-1;r++){
             for(i=0;i<=n-1;i++){
-                if(strcmp(str[i],str[i+1])>0){
+                if(strcmp(str[i],str[i+1])>0){ 
                     strcpy(temp,str[i]);
                     strcpy(str[i],str[i+1]);
                     strcpy(str[i+1],temp);
