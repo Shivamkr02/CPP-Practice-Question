@@ -1,40 +1,55 @@
 #include<iostream>
 using namespace std;
-class Time 
-{
-    private:
-        int h,m,s;
+class Time {
+    private: 
+        int hr,min,sec;
     public:
-        void setTime(int,int,int);
-        void showTime();
-        void normalize();
-        Time add(Time);
-        bool is_greater(Time);
+        void setTime(int x,int y,int z){
+            hr=x;
+            min=y;
+            sec=z;
+        }
+        void showTime(){
+            cout<<"\n"<<hr<<":"<<min<<":"<<sec;
+        }
+        void normalize(){
+            min=min+sec/60;
+            sec=sec%60;
+            hr=hr+min/60;
+            min=min%60;
+        }
+        Time add(Time t){
+            Time temp;
+            temp.sec=sec+t.sec;
+            temp.min=min+t.min;
+            temp.hr=hr+t.hr;
+            return temp;
+        }
+        bool is_greater(Time t){
+            if(hr>t.hr)
+                return true;
+            else if(hr<t.hr){
+                return false;
+            }
+            else if(min>t.min){
+                return true;
+            }
+            else if(min<t.min){
+                return false;
+            }
+            else if(sec>t.sec){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
 };
-void Time :: setTime(int x,int y,int z){
-    h=x;
-    m=y;
-    s=z;
-}
-void Time :: showTime(){
-    cout<<"H= "<<h<<"M= "<<m<<"S= "<<s;
-}
-void Time :: normalize(){
-    cout<<"Hour= "<<h;
-}
-Time Time :: add(Time t){
-    Time temp;
-    temp.h = h+t.h;
-    temp.m = m+t.m;
-    temp.s = s+t.s;
-    return temp;
-}
-
 int main(){
-    Time t1,t2,t3;
-    t1.setTime(6,55,56);
-    t2.setTime(12,25,33);
-    t3=t1.add(t2);
-    t3.showTime();
-    return 0;
+    Time t1;
+    t1.setTime(03,41,26);
+    t1.showTime();
+    t1.normalize();
+    cout<<"After Normalization"<<endl;
+    t1.showTime();
 }
