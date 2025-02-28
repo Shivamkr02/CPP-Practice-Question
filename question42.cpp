@@ -7,22 +7,35 @@ class Time
         int min;
         int second;
     public:
-        void setData(int x,int y,int z){
+        void setTime(int x,int y,int z){
             hour=x;
             min=y;
             second=z;
         }
-        void showData(){
+        void showTime(){
             cout<<hour<<" : "<<min<<" : "<<second<<" : ";
         }
-        Time operator> (Time t){
-            int time;
+        bool operator>(Time t){
+            if(hour>t.hour)
+                return true;
+            else if(hour<t.hour)
+                return false;
+            else if(min>t.min)
+                return true;
+            else if(min<t.min)
+                return false;
+            else if(second>t.second)
+                return true;
+            else
+                return false;
         }
 };
 
 int main(){
-    Time t1,t2;
-    t1.setData(04,53,55);
-    t2.setData(06,35,53);
+    Time t1,t2,t3;
+    t1.setTime(07,53,55);
+    t2.setTime(06,35,53);
+    cout<<t1.operator>(t2);
+
     return 0;
 }
