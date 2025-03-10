@@ -1,0 +1,3 @@
+int *p, q;
+
+1. p is a pointer and q is an integer.
